@@ -27,10 +27,10 @@ describe('createDigitValidator', () => {
         expect(isValidDigit('f')).toBe(true);
     });
 
-    it('should reject uppercase hexadecimal letters', () => {
+    it('should accept uppercase hexadecimal letters', () => {
         const isValidDigit = createDigitValidator(16);
 
-        expect(isValidDigit('A')).toBe(false);
+        expect(isValidDigit('A')).toBe(true);
     });
 
     it('should reject more than one character', () => {
