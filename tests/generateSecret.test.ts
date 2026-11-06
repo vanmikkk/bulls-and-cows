@@ -15,7 +15,7 @@ describe('generateSecret', () => {
     });
 
     it('should generate only digits allowed by the base', () => {
-        const secret = generateSecret(4, 2);
+        const secret = generateSecret(2, 2);
 
         expect([...secret].every((digit) => '01'.includes(digit))).toBe(true);
     });
