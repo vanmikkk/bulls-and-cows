@@ -1,5 +1,5 @@
-import { generateSecret } from './generateSecret';
-import type { GameState } from './types';
+import { generateSecret } from './generateSecret.js';
+import type { GameState } from './types.js';
 
 export function createInitialGameState(length: number, base: number): GameState {
     return {
