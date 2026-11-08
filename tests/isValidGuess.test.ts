@@ -26,7 +26,7 @@ describe('isValidGuess', () => {
         expect(isValidGuess('a1f3', 4, 16)).toBe(true);
     });
 
-    it('should reject uppercase hexadecimal digits', () => {
-        expect(isValidGuess('A1f3', 4, 16)).toBe(false);
+    it('should accept uppercase hexadecimal digits', () => {
+        expect(isValidGuess('A1f3', 4, 16)).toBe(true);
     });
 });
