@@ -1,6 +1,8 @@
 export function evaluateGuess(secret: string, guess: string): { bulls: number; cows: number } {
-    const secretDigits = [...secret];
-    const guessDigits = [...guess];
+    const normalizedSecret = secret.toLowerCase();
+    const normalizedGuess = guess.toLowerCase();
+    const secretDigits = [...normalizedSecret];
+    const guessDigits = [...normalizedGuess];
 
     const bulls = guessDigits
         .map((digit, index) => (digit === secretDigits[index] ? 1 : 0))
