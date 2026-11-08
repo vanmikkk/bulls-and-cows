@@ -132,7 +132,7 @@ The `countPossibleSecrets` function uses recursion and memoization.
 
 At each step, it multiplies the number of available digits by the number of possible sequences for the remaining positions. The base case returns `1` when no more digits need to be selected.
 
-Memoization stores calculated results in a `Map`, avoiding repeated calculations.
+The memoization map is stored at the module level, so calculated results are reused across multiple calls to `countPossibleSecrets`. This avoids repeating calculations when the function is called again with the same parameters.
 
 - Time complexity: **O(length)**, because there are at most `length + 1` distinct recursive states.
 - Space complexity: **O(length)**, for the memoization map and recursion stack.
