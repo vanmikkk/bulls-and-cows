@@ -13,3 +13,11 @@ export interface GameState {
     startedAt: number;
     finishedAt: number | null;
 }
+
+export interface GameRecord {
+    attempts: number;
+    duration: number;
+    length: number;
+    base: number;
+    completedAt: number;
+}
