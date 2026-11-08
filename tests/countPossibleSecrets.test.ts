@@ -29,4 +29,9 @@ describe('countPossibleSecrets', () => {
     it('should throw RangeError when length is less than 1', () => {
         expect(() => countPossibleSecrets(0, 10)).toThrow(RangeError);
     });
+
+    it('returns the same result when called repeatedly with the same parameters', () => {
+        expect(countPossibleSecrets(4, 10)).toBe(5040);
+        expect(countPossibleSecrets(4, 10)).toBe(5040);
+    });
 });

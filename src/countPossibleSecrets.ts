@@ -1,3 +1,5 @@
+const memo = new Map<string, number>();
+
 export function countPossibleSecrets(length: number, base: number): number {
     if (length < 1 || base < 2) {
         throw new RangeError('Invalid length or base');
@@ -6,8 +8,6 @@ export function countPossibleSecrets(length: number, base: number): number {
     if (length > base) {
         return 0;
     }
-
-    const memo = new Map<string, number>();
 
     function count(remaining: number, available: number): number {
         if (remaining === 0) {
