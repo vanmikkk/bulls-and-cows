@@ -1,5 +1,4 @@
 import { isValidGuess } from './isValidGuess.js';
-import { evaluateGuess } from './evaluateGuess.js';
 import { submitGuess } from './submitGuess.js';
 import type { GameState } from './types.js';
 import { createInitialGameState } from './createInitialGameState.js';
@@ -10,7 +9,6 @@ const gameSection = document.querySelector<HTMLElement>('#game');
 const gameInfo = document.querySelector<HTMLElement>('#game-info');
 const lengthSelect = document.querySelector<HTMLSelectElement>('#length');
 const baseSelect = document.querySelector<HTMLSelectElement>('#base');
-let secret = '';
 let gameState: GameState | null = null;
 const guessInput = document.querySelector<HTMLInputElement>('#guess-input');
 const submitButton = document.querySelector<HTMLButtonElement>('#submit-guess');
@@ -26,7 +24,6 @@ startButton?.addEventListener('click', () => {
     const length = Number(lengthSelect.value);
     const base = Number(baseSelect.value);
     gameState = createInitialGameState(length, base);
-    secret = gameState.secret;
 
     settingsSection.hidden = true;
     gameSection.hidden = false;
@@ -51,13 +48,17 @@ submitButton?.addEventListener('click', () => {
     }
 
     gameState = submitGuess(gameState, guess);
+
+    const result = gameState.history[gameState.history.length - 1];
+
+    if (!result) {
+        return;
+    }
+
     if (gameState.status === 'won') {
-        feedback.textContent += ' — Победа! Ты угадал секретное число!';
         submitButton.disabled = true;
         guessInput.disabled = true;
     }
-
-    const result = evaluateGuess(secret, guess);
 
     feedback.textContent = `Быки: ${result.bulls}, коровы: ${result.cows}`;
 
@@ -84,5 +85,4 @@ newGameButton?.addEventListener('click', () => {
     historyList!.replaceChildren();
 
     gameState = null;
-    secret = '';
 });
