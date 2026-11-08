@@ -151,12 +151,13 @@ This approach makes state transitions predictable and easier to test.
 
 The project follows several Clean Code principles:
 
-- **Single Responsibility Principle:** each game logic module has one clearly defined responsibility.
-- **Meaningful Names:** functions and variables use descriptive names, such as `generateSecret`, `isValidGuess`, and `availableDigits`.
-- **Small Functions:** game logic is separated into focused functions instead of being placed in one large module.
-- **Immutability:** game state and history are updated by creating new objects and arrays.
-- **Pure Functions:** functions such as `evaluateGuess`, `isValidGuess`, and `countPossibleSecrets` do not modify external state.
-- **Testability:** random number generation can be injected into `generateSecret`, and game logic is tested independently using Vitest.
+- **Single Responsibility Principle:** each module has a specific responsibility. For example, `generateSecret.ts` generates the secret sequence, while `evaluateGuess.ts` calculates bulls and cows.
+- **Meaningful Names:** functions and variables have descriptive names, such as `isValidGuess`, `availableDigits`, and `normalizedGuess`, making their purpose clear.
+- **Small Functions:** complex operations are divided into focused functions. For example, `createDigitValidator` creates a reusable digit validation function.
+- **Immutability:** `submitGuess` creates a new game state and history array instead of modifying the existing state.
+- **Pure Functions:** `evaluateGuess`, `isValidGuess`, and `countPossibleSecrets` produce results without modifying external state.
+- **Dependency Injection:** `generateSecret` accepts a random number generator as an optional parameter, making it easier to test with predictable values.
+- **Testability:** game logic is separated from the DOM and covered by independent unit tests using Vitest.
 
 ## 7. Technologies
 
