@@ -5,6 +5,7 @@ import { createInitialGameState } from './createInitialGameState.js';
 import { createDigitValidator } from './createDigitValidator.js';
 import { saveGameRecord } from './saveGameRecord.js';
 import { getGameRecords } from './getGameRecords.js';
+import { isDuplicateGuess } from './isDuplicateGuess.js';
 
 document.body.innerHTML = `
     <div id="app">
@@ -148,7 +149,7 @@ submitButton?.addEventListener('click', () => {
     }
 
     const guess = guessInput.value.trim();
-    if (gameState?.history.some((attempt) => attempt.guess === guess)) {
+    if (gameState && isDuplicateGuess(gameState.history, guess)) {
         feedback.textContent = 'Ты уже пробовал эту комбинацию. Попробуй другую.';
         return;
     }
