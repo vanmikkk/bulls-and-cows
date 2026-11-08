@@ -36,4 +36,11 @@ describe('evaluateGuess', () => {
             cows: 2,
         });
     });
+
+    it('should compare hexadecimal digits regardless of letter case', () => {
+        expect(evaluateGuess('aB3F', 'Ab3f')).toEqual({
+            bulls: 4,
+            cows: 0,
+        });
+    });
 });
