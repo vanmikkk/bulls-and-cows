@@ -60,4 +60,15 @@ describe('submitGuess', () => {
         expect(newState.status).toBe('playing');
         expect(newState.finishedAt).toBeNull();
     });
+
+    it('should not accept guesses after the game is won', () => {
+        const state = createInitialGameState(4, 10);
+        const stateWithKnownSecret = { ...state, secret: '1234' };
+        const wonState = submitGuess(stateWithKnownSecret, '1234');
+
+        const newState = submitGuess(wonState, '5678');
+
+        expect(newState).toBe(wonState);
+        expect(newState.history).toHaveLength(1);
+    });
 });
