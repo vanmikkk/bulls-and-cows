@@ -60,3 +60,44 @@ h1 {
 #settings button:hover {
     background-color: #1d4ed8;
 }
+
+#game {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+#game h2 {
+    margin: 0;
+    text-align: center;
+}
+
+#game input,
+#game button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+#game button {
+    border: none;
+    background-color: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#game button:hover {
+    background-color: #1d4ed8;
+}
+
+#feedback {
+    margin: 0;
+    font-weight: 600;
+}
