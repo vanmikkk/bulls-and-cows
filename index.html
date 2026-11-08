@@ -13,6 +13,33 @@
     <body>
         <div id="app">
             <h1>Быки и коровы</h1>
+
+            <section id="settings">
+                <h2>Новая игра</h2>
+
+                <label for="length">Длина секретного числа:</label>
+                <select id="length">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4" selected>4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+                <label for="base">Система счисления:</label>
+                <select id="base">
+                    <option value="2">Двоичная</option>
+                    <option value="8">Восьмеричная</option>
+                    <option value="10" selected>Десятичная</option>
+                    <option value="16">Шестнадцатеричная</option>
+                </select>
+
+                <button id="start-game">Начать игру</button>
+            </section>
+            <section id="game" hidden>
+                <h2>Игра началась!</h2>
+                <p id="game-info"></p>
+            </section>
         </div>
         <script type="module" src="./dist/index.js"></script>
     </body>
