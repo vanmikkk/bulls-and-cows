@@ -39,6 +39,13 @@
             <section id="game" hidden>
                 <h2>Игра началась!</h2>
                 <p id="game-info"></p>
+
+                <label for="guess-input">Твоя догадка:</label>
+                <input type="text" id="guess-input" autocomplete="off" maxlength="6" />
+
+                <button id="submit-guess">Проверить</button>
+
+                <p id="feedback"></p>
             </section>
         </div>
         <script type="module" src="./dist/index.js"></script>
